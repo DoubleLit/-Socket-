@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstdint> // 包含uint8_t等类型
+int main() 
+{
+    // 定义电机ID（使用uint8_t，因为宇树SDK中电机ID通常为1字节无符号整数）
+    uint8_t hip_motor_id = 1;   // 髋关节电机ID
+    uint8_t knee_motor_id = 2;  // 膝关节电机ID
+    // 定义关节角度（单位：弧度，float足够）
+    float hip_angle = 0.0f;      // 髋关节角度，初始化为0弧度
+    float knee_angle = 1.57f;    // 膝关节角度，初始化为π/2≈1.57弧度（90度）
+    // 打印变量值
+    std::cout << "Hip Motor ID: " << static_cast<int>(hip_motor_id) << std::endl;
+    std::cout << "Knee Motor ID: " << static_cast<int>(knee_motor_id) << std::endl;
+    std::cout << "Hip Angle: " << hip_angle << " rad" << std::endl;
+    std::cout << "Knee Angle: " << knee_angle << " rad" << std::endl;
+    // 尝试修改变量
+    hip_angle = 0.5f;  // 髋关节移动到0.5弧度
+    knee_angle = 2.0f; // 膝关节移动到2.0弧度
+    std::cout << "\nAfter movement:" << std::endl;
+    std::cout << "Hip Angle: " << hip_angle << " rad" << std::endl;
+    std::cout << "Knee Angle: " << knee_angle << " rad" << std::endl;
+    return 0;
+}
